@@ -7,13 +7,9 @@
   let title = $state("習慣トラッカー");
   let weekOffset = $state(0);
   
-  // Initialize on component mount
   initializeHabits();
-
-  // Get derived values
   const habits = $derived(getHabits());
 
-  // Handle date selection from grid
   const handleDateSelect = (date: string) => {
     const selectedDate = new Date(date);
     const today = new Date();
@@ -23,24 +19,36 @@
   };
 </script>
 
-<div class="max-w-3xl mx-auto">
-  <div class="mb-8 flex flex-col">
-    <h1 class="text-3xl font-bold">{title}</h1>
-    <span class="text-sm text-gray-500">Habit Tracker</span>
-  </div>
+<div class="px-4 pb-24">
+  <header class="mb-6 mt-2">
+    <h1 class="text-2xl font-bold tracking-tight">{title}</h1>
+    <span class="text-xs text-gray-400 tracking-wide">Habit Tracker</span>
+  </header>
   
-  <div class="flex flex-col space-y-6">
+  <div class="space-y-4">
     <!-- Habit Input -->
-    <HabitInput onSubmit={addHabit} />
+    <section class="bg-white/5 rounded-xl overflow-hidden">
+      <div class="p-4">
+        <HabitInput onSubmit={addHabit} />
+      </div>
+    </section>
 
     <!-- Weekly Progress -->
-    <HabitWeeklyView 
-      habits={habits}
-      onToggleCompletion={toggleHabitCompletion}
-      bind:weekOffset
-    />
+    <section class="bg-white/5 rounded-xl overflow-hidden">
+      <div class="p-4">
+        <HabitWeeklyView 
+          habits={habits}
+          onToggleCompletion={toggleHabitCompletion}
+          bind:weekOffset
+        />
+      </div>
+    </section>
 
     <!-- Yearly Activity -->
-    <HabitGrid onDateSelect={handleDateSelect} />
+    <section class="bg-white/5 rounded-xl overflow-hidden">
+      <div class="p-4">
+        <HabitGrid onDateSelect={handleDateSelect} />
+      </div>
+    </section>
   </div>
 </div> 

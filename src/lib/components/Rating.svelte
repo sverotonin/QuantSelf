@@ -73,11 +73,4 @@
       </button>
     {/each}
   </div>
-  {#if true}
-    {@const Icon = getIcon(type)}
-    <div class="absolute -top-6 left-0 flex items-center gap-2">
-      <Icon class={getIconClasses(type)} />
-      <span class="text-xs text-gray-400">{type === 'energy' ? 'Energy' : type === 'mood' ? 'Mood' : 'Sleep'}</span>
-    </div>
-  {/if}
 </div> 

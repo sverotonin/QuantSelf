@@ -74,7 +74,7 @@
       enTitle="History"
       items={getKiHistory().map((entry: KiEntry) => ({
         date: entry.date,
-        content: `Energy: ${entry.genki}/5, Sleep: ${entry.suimin}/3, Mood: ${entry.kibun}/5${entry.note ? ` - ${entry.note}` : ''}`
+        content: `Energy: ${entry.genki}/5, Sleep: ${entry.suimin}/3, ${entry.kibun}/5${entry.note ? ` - ${entry.note}` : ''}`
       }))}
     />
   </div>

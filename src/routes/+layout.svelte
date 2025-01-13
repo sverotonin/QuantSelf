@@ -3,11 +3,13 @@
 	import { page } from '$app/stores';
 
 	const navItems = [
-		{ path: '/', label: '主', en: 'Main' },
-		{ path: '/habits', label: '習慣', en: 'Habits' },
-		{ path: '/ki', label: '気分', en: 'Mood' },
-		{ path: '/budget', label: '予算', en: 'Budget' },
+		{ path: '/', label: '主', en: 'Main', gradient: 'from-blue-500/10 to-purple-500/10' },
+		{ path: '/habits', label: '習慣', en: 'Habits', gradient: 'from-emerald-500/10 to-teal-500/10' },
+		{ path: '/ki', label: '気分', en: 'Mood', gradient: 'from-pink-500/10 to-rose-500/10' },
+		{ path: '/budget', label: '予算', en: 'Budget', gradient: 'from-amber-500/10 to-orange-500/10' },
 	];
+
+	$: activeGradient = navItems.find(item => item.path === $page.url.pathname)?.gradient ?? navItems[0].gradient;
 </script>
 
 <div class="relative min-h-screen">
@@ -17,22 +19,31 @@
 	<div class="fixed inset-0 backdrop-blur-[100px] z-0" />
 	
 	<div class="relative z-10 min-h-screen text-gray-200">
-		<nav class="fixed top-0 left-0 w-16 h-screen bg-black/20 backdrop-blur-md border-r border-white/5">
-			<div class="flex flex-col items-center py-8 space-y-8">
+		<main class="pb-20 p-8">
+			<slot />
+		</main>
+
+		<nav class="fixed bottom-0 left-0 right-0 backdrop-blur-lg border-t border-white/5 transition-[background] duration-700">
+			<div class="absolute inset-0 bg-gradient-to-r {activeGradient} transition-[background] duration-700" />
+			<div class="relative max-w-lg mx-auto flex items-center justify-around px-4 pb-safe">
 				{#each navItems as {path, label, en}}
 					<a 
 						href={path} 
-						class="w-12 h-12 flex flex-col items-center justify-center rounded-lg hover:bg-white/10 transition-colors {$page.url.pathname === path ? 'bg-white/10' : ''}"
+						class="py-3 px-4 flex flex-col items-center gap-0.5"
 					>
-						<span class="text-sm font-semibold">{label}</span>
-						<span class="text-[10px] text-gray-400">{en}</span>
+						<span class="text-sm transition-colors duration-200
+							{$page.url.pathname === path ? 'text-white' : 'text-gray-500'}"
+						>
+							{label}
+						</span>
+						<span class="text-[9px] transition-colors duration-200
+							{$page.url.pathname === path ? 'text-gray-300' : 'text-gray-600'}"
+						>
+							{en}
+						</span>
 					</a>
 				{/each}
 			</div>
 		</nav>
-
-		<main class="ml-16 p-8">
-			<slot />
-		</main>
 	</div>
 </div>
