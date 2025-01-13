@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <!-- Dark background with subtle gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A0A0A"/>
+      <stop offset="100%" style="stop-color:#111111"/>
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#bgGradient)"/>
+  
+  <!-- Scaled and centered content for maskable icon safe area (centered in 80% of space) -->
+  <g transform="translate(51.2, 51.2) scale(0.8)">
+    <!-- Main circular frame -->
+    <circle cx="256" cy="256" r="180" 
+            fill="none" 
+            stroke="#FF3B30" 
+            stroke-width="2.5"
+            opacity="0.9"/>
+    
+    <!-- Stylized Torii Gate with depth -->
+    <path d="M176 156
+             h160
+             c4 0 8 4 8 8
+             l8 24
+             c1 3-1 6-4 6
+             h-184
+             c-3 0-5-3-4-6
+             l8-24
+             c0-4 4-8 8-8z" 
+          fill="#FF3B30"/>
+    
+    <!-- Gate pillars with perspective -->
+    <path d="M200 194
+             v120
+             c0 2 1 4 3 4
+             h12
+             c2 0 3-2 3-4
+             v-120z" 
+          fill="#FF3B30"/>
+          
+    <path d="M294 194
+             v120
+             c0 2 1 4 3 4
+             h12
+             c2 0 3-2 3-4
+             v-120z" 
+          fill="#FF3B30"/>
+    
+    <!-- Minimalist Mount Fuji -->
+    <path d="M146 314
+             Q256 214 366 314" 
+          fill="none"
+          stroke="#222222"
+          stroke-width="2.5"/>
+    
+    <!-- Traditional Wave Pattern -->
+    <path d="M146 334
+             q20-15 40 0
+             t40 0
+             t40 0
+             t40 0
+             t40 0" 
+          fill="none"
+          stroke="#222222"
+          stroke-width="2.5"
+          opacity="0.7"/>
+    
+    <!-- Zen circle -->
+    <circle cx="256" cy="256" r="140" 
+            fill="none" 
+            stroke="#181818" 
+            stroke-width="10"
+            opacity="0.3"/>
+    
+    <!-- Abstract Kanji strokes -->
+    <path d="M236 246
+             l40 0
+             m-20-20
+             l0 40" 
+          stroke="#FFFFFF"
+          stroke-width="3.5"
+          stroke-linecap="round"/>
+    
+    <!-- Ink splash accents -->
+    <circle cx="216" cy="276" r="5" fill="#333333" opacity="0.5"/>
+    <circle cx="296" cy="236" r="4" fill="#333333" opacity="0.5"/>
+    <circle cx="256" cy="296" r="3" fill="#333333" opacity="0.5"/>
+  </g>
+</svg> 
